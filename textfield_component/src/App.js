@@ -1,4 +1,4 @@
-import { TextField } from '@mui/material';
+import { Checkbox, FormControlLabel, FormGroup, TextField } from '@mui/material';
 import './App.css';
 import { useState } from 'react';
 
@@ -6,7 +6,8 @@ function App() {
   const [inputs, setInputs] = useState({
     name: "",
     email: "",
-    password: ""
+    password: "",
+    subscribe: false
   });
 
   const handleChange = (e) => {
@@ -24,7 +25,7 @@ function App() {
   return (
     <div className="App">
 
-      <form onSubmit={handleSubmit}>
+      <form style={{ display: "flex", flexDirection: 'column' }} onSubmit={handleSubmit}>
         <TextField
           name="name"
           onChange={handleChange}
@@ -42,6 +43,13 @@ function App() {
           onChange={handleChange}
 
           type={'password'} sx={{ margin: 3 }} placeholder='Enter your Password' variant='outlined' />
+
+        <FormGroup name='checkbox'>
+          <FormControlLabel control={<Checkbox onChange={() => setInputs((prev) => ({
+            ...prev,
+            subscribe: !inputs.subscribe
+          }))} />} label="" />
+        </FormGroup>
 
         <button type='submit'>Submit</button>
       </form>
