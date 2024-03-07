@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import './App.css';
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
+import { Box, Button, Modal, Typography } from '@mui/material';
 
 function App() {
   const [open, setOpen] = useState(false);
   return (
     <div className="App">
       <Button onClick={() => setOpen(true)}>Open Dialog</Button>
-      <Dialog open={open} onClose={() => setOpen(false)}>
+      {/* <Dialog open={open} onClose={() => setOpen(false)}>
         <DialogTitle>This is my Dialog</DialogTitle>
         <DialogContent>
           <DialogContentText>
@@ -19,7 +19,15 @@ function App() {
           <Button onClick={() => setOpen(false)}>Cancel 1</Button>
           <Button onClick={() => setOpen(false)}>Cancel 2</Button>
         </DialogActions>
-      </Dialog>
+      </Dialog> */}
+      <Modal open={open} onClose={() => setOpen(false)}>
+        <Box position="absolute" top="50%" left="50%">
+          <Typography>
+            It is Modal
+          </Typography>
+        </Box>
+      </Modal>
+
     </div>
   );
 }
