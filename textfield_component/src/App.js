@@ -1,4 +1,4 @@
-import { Checkbox, FormControlLabel, FormGroup, TextField } from '@mui/material';
+import { Checkbox, FormControl, FormControlLabel, FormGroup, InputLabel, MenuItem, Select, TextField } from '@mui/material';
 import './App.css';
 import { useState } from 'react';
 
@@ -7,7 +7,8 @@ function App() {
     name: "",
     email: "",
     password: "",
-    subscribe: false
+    subscribe: false,
+    age: 0
   });
 
   const handleChange = (e) => {
@@ -50,6 +51,20 @@ function App() {
             subscribe: !inputs.subscribe
           }))} />} label="" />
         </FormGroup>
+
+        <FormControl fullWidth>
+          <InputLabel>Age</InputLabel>
+          <Select
+          name='age'
+            value={inputs.age}
+            label="Age"
+            onChange={handleChange}
+          >
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+        </FormControl>
 
         <button type='submit'>Submit</button>
       </form>
