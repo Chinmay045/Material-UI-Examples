@@ -33,11 +33,14 @@ function App() {
         <TextField
           name='email'
           value={inputs.email}
+          onChange={handleChange}
           type={'email'} sx={{ margin: 3 }} placeholder='Enter your Email' variant='outlined' />
 
         <TextField
           name="password"
           value={inputs.password}
+          onChange={handleChange}
+
           type={'password'} sx={{ margin: 3 }} placeholder='Enter your Password' variant='outlined' />
 
         <button type='submit'>Submit</button>
