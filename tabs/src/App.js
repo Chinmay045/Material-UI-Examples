@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import { AppBar, Tab, Tabs, Toolbar } from '@mui/material';
 import './App.css';
+import { useState } from 'react';
+
 
 function App() {
+  const [value, setValue] = useState();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AppBar>
+        <Toolbar>
+          <Tabs value={value}
+            textColor='secondary'
+            onChange={(e, val) => setValue(val)}>
+            <Tab label="first" />
+            <Tab label="second" />
+            <Tab label="third" />
+          </Tabs>
+        </Toolbar>
+      </AppBar>
+
     </div>
   );
 }
